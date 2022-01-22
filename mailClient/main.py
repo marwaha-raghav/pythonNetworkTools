@@ -16,8 +16,8 @@ def generate_mail():
     server.starttls()
 
 # with open('password.txt', 'r') as f:
-# password = f.read()
-    server.login('mvpshaggy@gmail.com', 'westside98')
+    # password = f.read()
+    server.login('mvpshaggy@gmail.com', 'Password')
     mail_msg = MIMEMultipart()
     mail_msg['From'] = 'biostar'
     mail_msg['To'] = 'raghavmarwaha1998@gmail.com'
