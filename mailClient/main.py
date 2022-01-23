@@ -8,6 +8,7 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from encrypter import CryptoEngine
+from pathlib import Path
 
 
 def generate_mail():

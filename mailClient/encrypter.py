@@ -7,6 +7,8 @@
 # Then it can be decrypted with Fernet class instance and it should be instanced with the same key used for encryption.
 
 from cryptography import fernet
+from pathlib import Path
+
 from fernet import Fernet
 
 
@@ -22,12 +24,13 @@ class CryptoEngine:
         This function is part of the CryptoEngine and is responsible for encrypting the secrets from the file
         :return:
         """
+        print("Print context", __name__)
         # instance of fernet class with key
         encryption_engine = Fernet(self.key)
         # password is encoded to a byte string and encrypted
         encrypted_message = encryption_engine.encrypt(self.secret.encode())
         # Write secret to a file
-        with open('password.txt', 'wb') as f:
+        with open(Path("password.txt"), 'wb') as f:
             f.write(encrypted_message)
 
     @staticmethod
@@ -35,7 +38,7 @@ class CryptoEngine:
         """
                This function is part of the CryptoEngine and is responsible for decrypting the secrets from the file
                :return:
-               """
+        """
         with open('password.txt', 'rb') as f:
             read_secret = f.read()
             decryption_engine = Fernet(CryptoEngine.key)
