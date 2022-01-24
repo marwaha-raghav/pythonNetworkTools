@@ -51,7 +51,7 @@ def receive():
         clients.append(communication_socket)
 
         print(f"Nickname of the client is {nickname}")
-        broadcast(f"{nickname} joined the server.")
+        broadcast(f"{nickname} joined the server.".encode('ascii'))
         communication_socket.send("Connected to the server".encode())
 
         thread = threading.Thread(target=handle, args=(communication_socket,))
